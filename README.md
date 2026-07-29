@@ -294,6 +294,8 @@ Useful options:
 
 For OmniDocBench evaluation, you need to perform the following post-processing.
 ```python
+DET_RE = re.compile(r'<\|det\|>([^<\s]+)(?:\s*\[[^\]]*\])?\s*<\|/det\|>(.*)', re.DOTALL)
+
 def remove_det(raw: str) -> str:
     """
     Strip <|det|>type [bbox]<|/det|> markers, group lines belonging to the
